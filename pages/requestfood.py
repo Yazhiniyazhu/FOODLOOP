@@ -16,7 +16,7 @@ food = st.selectbox(
 
 qty = st.number_input(
     "Required Quantity",
-    min_value=1
+    min_value=2
 )
 
 address = st.text_area("Pickup Address")
