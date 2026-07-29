@@ -9,7 +9,8 @@ food = st.selectbox(
         "Biryani",
         "Vegetables",
         "Bread",
-        "Milk"
+        "Milk",
+        "Veg Rice"
     ]
 )
 
