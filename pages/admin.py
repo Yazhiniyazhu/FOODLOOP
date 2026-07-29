@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("👨‍💼 Admin Dashboard")
+st.title("👨‍💼 Ad shboard")
 
 requests = [
     "Rice - NGO A",
