@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title("🍲 Donat Food")
 
-food = st.text_input("Food Name")
+food = st.text_input("Fo Name")
 
 quantity = st.number_input(
     "Quantity",
