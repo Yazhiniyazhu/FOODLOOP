@@ -5,15 +5,21 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'FoodLoop code is being processed by Jenkins'
+                echo 'Getting FoodLoop code from GitHub'
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'FoodLoop build successful'
+                sh 'docker build -t foodloop .'
             }
         }
 
+        stage('Run Docker Container') {
+            steps {
+                sh 'docker rm -f foodloop-container || true'
+                sh 'docker run -d -p 8501:8501 --name foodloop-container foodloop'
+            }
+        }
     }
 }
