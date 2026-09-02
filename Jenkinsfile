@@ -3,23 +3,17 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Verify Docker') {
             steps {
-                echo 'Getting FoodLoop code from GitHub'
+                bat 'docker --version'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t foodloop .'
+                bat 'docker build -t monika123/foodloop:latest .'
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                sh 'docker rm -f foodloop-container || true'
-                sh 'docker run -d -p 8501:8501 --name foodloop-container foodloop'
-            }
-        }
     }
 }
