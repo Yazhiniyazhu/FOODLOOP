@@ -1,17 +1,22 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'M3'
+    }
+
     stages {
 
-        stage('Verify Docker') {
+        stage('Checkout Git') {
             steps {
-                bat 'docker --version'
+                git branch: 'main',
+                    url: 'https://github.com/Yazhiniyazhu/FOODLOOP.git'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Maven Build') {
             steps {
-                bat 'docker build -t monika123/foodloop:latest .'
+                bat 'mvn validate'
             }
         }
 
